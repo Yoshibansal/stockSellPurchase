@@ -105,6 +105,16 @@ function addHtmlTableRow()
         bhada = document.getElementById("bhada").value;
 
     sn = sn+1;
+
+
+    const div = document.createElement("div")
+    var btn1 = document.createElement("BUTTON");
+    var btn2 = document.createElement("BUTTON");
+    btn1.innerHTML = "edit";
+    btn2.innerHTML = "delete";
+    div.appendChild(btn1);
+    div.appendChild(btn2);
+
     cell1.innerHTML = sn;
     cell2.innerHTML = iname;
     cell3.innerHTML = bag;
@@ -115,10 +125,11 @@ function addHtmlTableRow()
     cell8.innerHTML = date;
     cell9.innerHTML = gadi_no;
     cell10.innerHTML = (rate*bajan).toFixed(2);
-    cell11 = myButton();
+    cell11.appendChild(div) 
 
     // call the function to set the event to the new row
     selectedRowToInput();
+    modal.style.display = "none";
 }
 }
 

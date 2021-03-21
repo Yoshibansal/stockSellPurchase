@@ -64,13 +64,16 @@ function checkEmptyInput()
 }
 
 //add button
-function myButton() {
-  var btn1 = document.createElement("BUTTON");
-  var btn2 = document.createElement("BUTTON");
-  btn1.innerHTML = "edit";
-  btn2.innerHTML = "delete";
-  document.body.appendChild(btn1);
-  document.body.appendChild(btn2);
+function myButton(id) {
+    const div = document.createElement("div")
+    var btn1 = document.createElement("BUTTON");
+    var btn2 = document.createElement("BUTTON");
+    btn2.setAttribute("deleteId", id)
+    btn1.innerHTML = "edit";
+    btn2.innerHTML = "delete";
+    div.appendChild(btn1);
+    div.appendChild(btn2);
+    return div
 }
 
 // add Row
@@ -113,7 +116,8 @@ function addHtmlTableRow()
     cell8.innerHTML = date;
     cell9.innerHTML = rate;
     cell10.innerHTML = (bajan*rate).toFixed(2);
-    cell11 = myButton();
+    cell11.appendChild(myButton(table.rows.length - 2))
+    newRow.setAttribute("id", `${table.rows.length - 2}`)
 
     // call the function to set the event to the new row
     selectedRowToInput();
@@ -171,6 +175,7 @@ function editHtmlTbleSelectedRow()
 
 function removeSelectedRow()
 {
+
     table.deleteRow(rIndex);
     // clear input text
     document.getElementById("date").value = "",
