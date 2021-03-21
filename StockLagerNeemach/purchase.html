@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Purchase</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 align="center">Purchase</h1>
+        <hr>
+        <div class="topnav">
+            <a href="#home" onclick="parent.location='index.html'">Home</a>
+            <a class="active" href="#pur" onclick="parent.location='purchase.html'">Purchase</a>
+            <a href="#sell" onclick="parent.location='sell.html'">Sell</a>
+        </div>
+        <br>
+        <button class="button2" id="myBtn" style="float: right;">Add Purchase</button><br><br>
+        <br>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1 align="center">Add Purchase</h1>
+                <form>
+                    <label>Date: </label>
+                    <input type="date" id="date" name="date"><t><t>
+
+                    <label>Item Name: </label>
+                    <input type="text" id="iname" name="item name" placeholder="Item name..">
+
+                    <br>
+                    <input type="checkbox" id="mandi">Mandi<t>
+
+                    <input type="radio" id="prangan">Prangan<t>
+
+                    <input type="radio" id="bahar">Bahar<br>
+
+                    <label>Bag: </label>
+                    <input type="number" id="bag"><t>
+
+                    <label>Bajan: </label>
+                    <input type="number" id="bajan"><t>
+
+                    <label>Rate: </label>
+                    <input type="number" id="rate"><t>
+
+                    <input type="button" value="Add" onclick="addHtmlTableRow();">
+                </form>
+            </div>
+
+        </div>
+        <br>
+        <div>
+            <div class="tab tab-1">
+                <table id="table" border="1">
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Item Name</th>
+                        <th>Mandi</th>
+                        <th>Prangan</th>
+                        <th>Bahar</th>
+                        <th>Bag</th>
+                        <th>Bajan</th>
+                        <th>Date</th>
+                        <th>Rate</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>Satawar</td>
+                        <td>10</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button onclick="editHtmlTbleSelectedRow();">Edit</button>
+                        <button onclick="removeSelectedRow();">Remove</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+    <script src="index.js"></script>
+</html>
