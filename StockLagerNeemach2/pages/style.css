@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
   float: left;
   width: 100%;
   text-align: center;
@@ -7,8 +7,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.button{
-  display:inline-block;
+.button {
+  display: inline-block;
   font-size: 30px;
   padding: 15px 32px;
   border: none;
@@ -21,24 +21,28 @@
 }
 
 .button:hover {
-  background-color: #4CAF50; /* Green */
+  background-color: #4caf50; /* Green */
   color: white;
 }
 
 .box {
-    background-image: url(../img/img_show.jpeg);
-    padding: 300px;
-    margin: 10px;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+  background-image: url(../img/img_show.jpeg);
+  padding: 300px;
+  margin: 10px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 /* .padding {
     padding: 0.01px;
 } */
 
-hr { background-color: Green; height: 2px; border: 0; }
+hr {
+  background-color: Green;
+  height: 2px;
+  border: 0;
+}
 
 /* Add a black background color to the top navigation */
 .topnav {
@@ -64,7 +68,7 @@ hr { background-color: Green; height: 2px; border: 0; }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
@@ -73,26 +77,27 @@ table {
   width: 100%;
 }
 
-th, td {
+th,
+td {
   text-align: left;
   padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
 th {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
-
 .alignleft {
-	float: left;
+  float: left;
 }
 .alignright {
-	float: right;
+  float: right;
 }
-
 
 /* The Modal (background) */
 .modal {
@@ -105,8 +110,8 @@ th {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -133,8 +138,8 @@ th {
   cursor: pointer;
 }
 
-.button2{
-  display:inline-block;
+.button2 {
+  display: inline-block;
   font-size: 20px;
   padding: 15px 32px;
   border: none;
@@ -147,11 +152,12 @@ th {
 }
 
 .button2:hover {
-  background-color: #4CAF50; /* Green */
+  background-color: #4caf50; /* Green */
   color: white;
 }
 
-input[type=text], select {
+input[type="text"],
+select {
   width: 45%;
   padding: 14px 18px;
   margin: 15px 10px;
@@ -161,7 +167,8 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-input[type=number], select {
+input[type="number"],
+select {
   /* width: 100%; */
   padding: 10px 12px;
   margin: 15px 10px;
@@ -171,36 +178,46 @@ input[type=number], select {
   box-sizing: border-box;
 }
 
-input[type=date], select {
-    padding: 10px 12px;
-    margin: 15px 10px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+input[type="date"],
+select {
+  padding: 10px 12px;
+  margin: 15px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-input[type=button] {
+input[type="button"] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  /* Garvit CSS */
+  margin: 8px 2px;
 }
 
-input[type=button]:hover {
+input[type="button"]:hover {
   background-color: #45a049;
 }
 
-label{
-    display: contents;
+label {
+  display: contents;
 }
 
-label span{
-    display: inline-block;
-    text-align: right;
-    width: 100px;
+label span {
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+
+/* Adjust this CSS */
+
+/* used at sell.js line 74 */
+.buttonsWrapper {
+  display: flex;
 }
