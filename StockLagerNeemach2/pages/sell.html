@@ -1,115 +1,107 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Sell</title>
-        <link rel = "icon" href = "../img/logo.png"
-        type = "image/x-icon">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1 align="center">Sell</h1>
-        <hr>
-        <div class="topnav">
-            <a href="#home" onclick="parent.location='index.html'">Home</a>
-            <a href="#pur" onclick="parent.location='purchase.html'">Purchase</a>
-            <a class="active" href="#sell" onclick="parent.location='sell.html'">Sell</a>
-        </div>
-        <br>
-        <button class="button2" id="myBtn" style="float: right;">Add Sell</button><br><br>
-        <br>
-        <div id="myModal" class="modal">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sell</title>
+    <link rel="icon" href="../img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 align="center">Sell</h1>
+    <hr />
+    <div class="topnav">
+      <a href="#home" onclick="parent.location='index.html'">Home</a>
+      <a href="#pur" onclick="parent.location='purchase.html'">Purchase</a>
+      <a class="active" href="#sell" onclick="parent.location='sell.html'"
+        >Sell</a
+      >
+    </div>
+    <br />
+    <button class="button2" id="myBtn" style="float: right">Add Sell</button
+    ><br /><br />
+    <br />
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1 align="center">Add sell</h1>
+        <form>
+          <label>
+            <span>Date: </span>
+            <input type="date" id="date" name="trip-start" />
+          </label>
 
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1 align="center">Add sell</h1>
-                <form>
-                    <label>
-                        <span>Date: </span>
-                        <input type="date" id="date" name="trip-start">
-                    </label>
+          <label>
+            <span>Item Name: </span>
+            <input
+              type="text"
+              id="iname"
+              name="item name"
+              placeholder="Item name.."
+            />
+          </label>
 
-                    <label>
-                        <span>Item Name: </span>
-                        <input type="text" id="iname" name="item name" placeholder="Item name..">
-                    </label>
+          <br />
 
-                    <br>
+          <label>
+            <span>Bag: </span>
+            <input type="number" id="bag" />
+          </label>
 
-                    <label>
-                        <span>Bag: </span>
-                        <input type="number" id="bag">
-                    </label>
+          <label>
+            <span>Bajan: </span>
+            <input type="number" id="bajan" />
+          </label>
 
-                    <label>
-                        <span>Bajan: </span>
-                        <input type="number" id="bajan">
-                    </label>
+          <label>
+            <span>Rate: </span>
+            <input type="number" id="rate" />
+          </label>
+          <br />
+          <label>
+            <span>Balance: </span>
+            <input type="number" id="balance" />
+          </label>
 
-                    <label>
-                        <span>Rate: </span>
-                        <input type="number" id="rate">
-                    </label>
-                    <br>
-                    <label >
-                        <span>Balance: </span>
-                        <input type="number" id="balance">
-                    </label>
+          <label>
+            <span>Transport: </span>
+            <input type="text" id="transport" />
+          </label>
+          <br />
+          <label>
+            <span>Gadi Number: </span>
+            <input type="number" id="gadi_no" />
+          </label>
 
-                    <label>
-                        <span>Transport: </span>
-                        <input type="text" id="transport">
-                    </label>
-                    <br>
-                    <label>
-                        <span>Gadi Number: </span>
-                        <input type="number" id="gadi_no">
-                    </label>
+          <label>
+            <span>Bhada: </span>
+            <input type="number" id="bhada" />
+          </label>
 
-                    <label>
-                        <span>Bhada: </span>
-                        <input type="number" id="bhada">
-                    </label>
-
-                    <input type="button" value="Add" onclick="addHtmlTableRow();">
-                </form>
-            </div>
-
-        </div>
-        <br>
-        <div>
-            <div class="tab tab-1">
-                <table id="table" border="1">
-                    <tr>
-                        <th>S.No.</th>
-                        <th>Item Name</th>
-                        <th>Bag</th>
-                        <th>Bajan</th>
-                        <th>Rate</th>
-                        <th>Balance</th>
-                        <th>Transport</th>
-                        <th>Date</th>
-                        <th>Gadi Number</th>
-                        <th>Bhada</th>
-                        <th>Actions</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>Haldi</td>
-                        <td>10</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </body>
-    <script src="sell.js"></script>
+          <input type="button" value="Add" onclick="add_row();" />
+        </form>
+      </div>
+    </div>
+    <br />
+    <div>
+      <div class="tab tab-1">
+        <table id="table" border="1">
+          <tr>
+            <th>S.No.</th>
+            <th>Item Name</th>
+            <th>Bag</th>
+            <th>Bajan</th>
+            <th>Rate</th>
+            <th>Balance</th>
+            <th>Transport</th>
+            <th>Date</th>
+            <th>Gadi Number</th>
+            <th>Bhada</th>
+            <th>Actions</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script src="sell.js"></script>
 </html>

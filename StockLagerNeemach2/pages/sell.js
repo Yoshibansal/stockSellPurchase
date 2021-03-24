@@ -24,24 +24,14 @@ window.onclick = function(event) {
   }
 }
 
-var rIndex, table = document.getElementById("table");
+var table = document.getElementById("table");
 
-var sn = 0;
 // check the empty input
-function checkEmptyInput()
+function checkEmptyInput(date, name, bag, bajan, rate, balance, transport, gadi_no, bhada)
 {
-    var isEmpty = false,
-        date = document.getElementById("date").value,
-        iname = document.getElementById("iname").value,
-        bag = document.getElementById("bag").value,
-        bajan = document.getElementById("bajan").value,
-        rate = document.getElementById("rate").value;
-        balance = document.getElementById("balance").value,
-        transport = document.getElementById("transport").value,
-        gadi_no = document.getElementById("gadi_no").value,
-        bhada = document.getElementById("bhada").value;
+    var isEmpty = false
 
-    if(iname === ""){
+    if(name === ""){
         alert("Item name Connot Be Empty");
         isEmpty = true;
     }
@@ -64,136 +54,89 @@ function checkEmptyInput()
     return isEmpty;
 }
 
-//add button
-function myButton() {
-  var btn1 = document.createElement("BUTTON");
-  var btn2 = document.createElement("BUTTON");
-  btn1.innerHTML = "edit";
-  btn2.innerHTML = "delete";
-  document.body.appendChild(btn1);
-  document.body.appendChild(btn2);
-}
-
 // add Row
-function addHtmlTableRow()
+
+function add_row()
 {
-    // get the table by id
-    // create a new row and cells
-    // get value from input text
-    // set the values into row cell's
-    if(!checkEmptyInput()){
-    var newRow = table.insertRow(table.length),
-        cell1 = newRow.insertCell(0),
-        cell2 = newRow.insertCell(1),
-        cell3 = newRow.insertCell(2),
-        cell4 = newRow.insertCell(3),
-        cell5 = newRow.insertCell(4),
-        cell6 = newRow.insertCell(5),
-        cell7 = newRow.insertCell(6),
-        cell8 = newRow.insertCell(7),
-        cell9 = newRow.insertCell(8),
-        cell10 = newRow.insertCell(9),
-        cell11 = newRow.insertCell(10),
-        date = document.getElementById("date").value,
-        iname = document.getElementById("iname").value,
-        bag = document.getElementById("bag").value,
-        bajan = document.getElementById("bajan").value,
-        rate = document.getElementById("rate").value;
-        balance = document.getElementById("balance").value,
-        transport = document.getElementById("transport").value,
-        gadi_no = document.getElementById("gadi_no").value,
-        bhada = document.getElementById("bhada").value;
+    let date = document.getElementById("date").value
+    let name = document.getElementById("iname").value
+    let bag = document.getElementById("bag").value
+    let bajan = document.getElementById("bajan").value
+    let rate = document.getElementById("rate").value
+    let balance = document.getElementById("balance").value
+    let transport = document.getElementById("transport").value
+    let gadi_no = document.getElementById("gadi_no").value
+    let bhada = document.getElementById("bhada").value
 
-    sn = sn+1;
-
-
-    const div = document.createElement("div")
-    var btn1 = document.createElement("BUTTON");
-    var btn2 = document.createElement("BUTTON");
-    btn1.innerHTML = "edit";
-    btn2.innerHTML = "delete";
-    div.appendChild(btn1);
-    div.appendChild(btn2);
-
-    cell1.innerHTML = sn;
-    cell2.innerHTML = iname;
-    cell3.innerHTML = bag;
-    cell4.innerHTML = bajan;
-    cell5.innerHTML = rate;
-    cell6.innerHTML = balance;
-    cell7.innerHTML = transport;
-    cell8.innerHTML = date;
-    cell9.innerHTML = gadi_no;
-    cell10.innerHTML = (rate*bajan).toFixed(2);
-    cell11.appendChild(div) 
-
-    // call the function to set the event to the new row
-    selectedRowToInput();
-    modal.style.display = "none";
-}
-}
-
-// display selected row data into input text
-function selectedRowToInput()
-{
-
-    for(var i = 1; i < table.rows.length; i++)
-    {
-        table.rows[i].onclick = function()
-        {
-          // get the seected row index
-          rIndex = this.rowIndex;
-          document.getElementById("date").value = this.cells[1].innerHTML;
-          document.getElementById("iname").value = this.cells[2].innerHTML;
-          document.getElementById("bag").value = this.cells[3].innerHTML;
-          document.getElementById("bajan").value = this.cells[4].innerHTML;
-          document.getElementById("rate").value = this.cells[5].innerHTML;
-          document.getElementById("balance").value = this.cells[6].innerHTML;
-          document.getElementById("transport").value = this.cells[7].innerHTML;
-          document.getElementById("gadi_no").value = this.cells[8].innerHTML;
-          document.getElementById("bhada").value = this.cells[9].innerHTML;
-
-        };
+    if(!checkEmptyInput(date, name, bag, bajan, rate, balance, transport, gadi_no, bhada)){
+        var table=document.getElementById("table");
+        var table_len=(table.rows.length);
+        table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='id_row"+table_len+"'>"+table_len+"</td><td id='name_row"+table_len+"'>"+name+"</td><td id='bag_row"+table_len+"'>"+bag+"</td><td id='bajan_row"+table_len+"'>"+bajan+"</td><td id='rate_row"+table_len+"'>"+rate+"</td><td id='balance_row"+table_len+"'>"+balance+"</td><td id='transport_row"+table_len+"'>"+transport+"</td><td id='date_row"+table_len+"'>"+date+"</td><td id='gadiNo_row"+table_len+"'>"+gadi_no+"</td><td id='bhada_row"+table_len+"'>"+bhada+"</td><td class='buttonsWrapper'><input type='button' id='edit_button"+table_len+"' value='Edit' class='edit' onclick='edit_row("+table_len+")'> <input type='button' id='save_button"+table_len+"' value='Save' class='save' onclick='save_row("+table_len+")'> <input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
+    
+        date = "", name="", bag="", bajan="", rate="", balance="", transport="", date="", gadi_no="", bhada=""
+        modal.style.display = "none";
     }
 }
-selectedRowToInput();
 
-function editHtmlTbleSelectedRow()
+//Delete a row
+function delete_row(no)
 {
-    var date = document.getElementById("date").value,
-        iname = document.getElementById("iname").value,
-        bag = document.getElementById("bag").value,
-        bajan = document.getElementById("bajan").value,
-        rate = document.getElementById("rate").value;
-        balance = document.getElementById("balance").value,
-        transport = document.getElementById("transport").value,
-        gadi_no = document.getElementById("gadi_no").value,
-        bhada = document.getElementById("bhada").value;
-   if(!checkEmptyInput()){
-    // table.rows[rIndex].cells[0].innerHTML = ;
-    table.rows[rIndex].cells[1].innerHTML = date;
-    table.rows[rIndex].cells[2].innerHTML = iname;
-    table.rows[rIndex].cells[3].innerHTML = bag;
-    table.rows[rIndex].cells[4].innerHTML = bajan;
-    table.rows[rIndex].cells[5].innerHTML = rate;
-    table.rows[rIndex].cells[6].innerHTML = balance;
-    table.rows[rIndex].cells[7].innerHTML = transport;
-    table.rows[rIndex].cells[8].innerHTML = gadi_no;
-    table.rows[rIndex].cells[9].innerHTML = bhada;
-  }
+ document.getElementById("row"+no+"").outerHTML="";
 }
 
-function removeSelectedRow()
+//Edit a row
+function edit_row(no)
 {
-    table.deleteRow(rIndex);
-    // clear input text
-    document.getElementById("date").value = "",
-    document.getElementById("iname").value = "",
-    document.getElementById("bag").value = "",
-    document.getElementById("bajan").value = "",
-    document.getElementById("rate").value = "";
-    document.getElementById("balance").value = "",
-    document.getElementById("transport").value = "",
-    document.getElementById("gadi_no").value = "",
-    document.getElementById("bhada").value = "";
+ document.getElementById("edit_button"+no).style.display="none";
+ document.getElementById("save_button"+no).style.display="block";
+
+ let date = document.getElementById("date_row"+no)
+ let name = document.getElementById("name_row"+no)
+ let bag = document.getElementById("bag_row"+no)
+ let bajan = document.getElementById("bajan_row"+no)
+ let rate = document.getElementById("rate_row"+no)
+ let balance = document.getElementById("balance_row"+no)
+ let transport = document.getElementById("transport_row"+no)
+ let gadi_no = document.getElementById("gadiNo_row"+no)
+ let bhada = document.getElementById("bhada_row"+no)
+
+ name.innerHTML="<input type='text' id='name_text"+no+"' value='"+name.innerHTML+"'>";
+ bag.innerHTML="<input type='number' id='bag_text"+no+"' value='"+bag.innerHTML+"'>";
+ bajan.innerHTML="<input type='number' id='bajan_text"+no+"' value='"+bajan.innerHTML+"'>";
+ rate.innerHTML="<input type='number' id='rate_text"+no+"' value='"+rate.innerHTML+"'>";
+ balance.innerHTML="<input type='number' id='balance_text"+no+"' value='"+balance.innerHTML+"'>";
+ transport.innerHTML="<input type='text' id='transport_text"+no+"' value='"+transport.innerHTML+"'>";
+ date.innerHTML="<input type='date' id='date_text"+no+"' value='"+date.innerHTML+"'>";
+ gadi_no.innerHTML="<input type='number' id='gadiNo_text"+no+"' value='"+gadi_no.innerHTML+"'>";
+ bhada.innerHTML="<input type='number' id='bhada_text"+no+"' value='"+bhada.innerHTML+"'>";
+
 }
+
+
+function save_row(no)
+{
+    let date = document.getElementById("date_text"+no).value
+    let name = document.getElementById("name_text"+no).value
+    let bag = document.getElementById("bag_text"+no).value
+    let bajan = document.getElementById("bajan_text"+no).value
+    let rate = document.getElementById("rate_text"+no).value
+    let balance = document.getElementById("balance_text"+no).value
+    let transport = document.getElementById("transport_text"+no).value
+    let gadi_no = document.getElementById("gadiNo_text"+no).value
+    let bhada = document.getElementById("bhada_text"+no).value
+
+    document.getElementById("date_row"+no).innerHTML = date
+    document.getElementById("name_row"+no).innerHTML = name
+    document.getElementById("bag_row"+no).innerHTML = bag
+    document.getElementById("bajan_row"+no).innerHTML = bajan
+    document.getElementById("rate_row"+no).innerHTML = rate
+    document.getElementById("balance_row"+no).innerHTML = balance
+    document.getElementById("transport_row"+no).innerHTML = transport
+    document.getElementById("gadiNo_row"+no).innerHTML = gadi_no
+    document.getElementById("bhada_row"+no).innerHTML = bhada
+
+ document.getElementById("edit_button"+no).style.display="block";
+ document.getElementById("save_button"+no).style.display="none";
+}
+
+
